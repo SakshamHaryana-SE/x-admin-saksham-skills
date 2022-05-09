@@ -48,10 +48,11 @@ export default function Login(props) {
       password: input.password,
       applicationId: persona.applicationId,
       redirect: false,
-      callbackUrl: `${persona.redirectUrl.search("http") < 0
-        ? `${process.env.NEXT_PUBLIC_URL}/${persona.redirectUrl}`
-        : persona.redirectUrl
-        }`,
+      callbackUrl: `${
+        persona.redirectUrl.search("http") < 0
+          ? `${process.env.NEXT_PUBLIC_URL}/${persona.redirectUrl}`
+          : persona.redirectUrl
+      }`,
     });
     if (url) {
       router.push(url);

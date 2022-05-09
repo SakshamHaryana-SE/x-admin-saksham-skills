@@ -18,7 +18,8 @@ const handler = async (req, res) => {
       }
     }
   } else {
-    res.status(401).json({ error: "Unauthorised access.", success: null });}
+    res.status(401).json({ error: "Unauthorised access.", success: null });
+  }
 };
 
 export default handler;

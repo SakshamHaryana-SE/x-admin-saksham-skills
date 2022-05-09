@@ -55,8 +55,9 @@ const VerticalItem = (props) => {
   return (
     <Link
       to={`/${item.name}`}
-      className={`${classes.sidebarItem} ${activePath?.split("/")?.includes(item.name) ? classes.selected : ""
-        }`}
+      className={`${classes.sidebarItem} ${
+        activePath?.split("/")?.includes(item.name) ? classes.selected : ""
+      }`}
     >
       <Icon className={classes.sidebarIcon} type={item.icon} />
       <span className={classes.listItem}>{sidebarItemName}</span>

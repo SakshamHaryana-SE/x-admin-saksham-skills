@@ -52,9 +52,17 @@ const SearchFilter = (props) => {
       <TextInput
         label="Recruiter Mobile Number"
         source="vacancy_detail#employer_detail#mobile_number@_ilike"
-      />      
-      <BooleanInput label="Interested" source="interested" defaultChecked={true} />
-      <BooleanInput label="Not Responded" source="interested@_is_null" defaultChecked={true} />      
+      />
+      <BooleanInput
+        label="Interested"
+        source="interested"
+        defaultChecked={true}
+      />
+      <BooleanInput
+        label="Not Responded"
+        source="interested@_is_null"
+        defaultChecked={true}
+      />
     </Filter>
   );
 };
@@ -295,7 +303,7 @@ export const InterestedCandidateList = (props) => {
                 render={(record) => {
                   return record.vacancy_detail?.employer_detail?.name;
                 }}
-              />              
+              />
               <FunctionField
                 label="Expected Salary"
                 render={(record) => {

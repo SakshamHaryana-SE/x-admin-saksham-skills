@@ -10,7 +10,10 @@ import {
   DonateDeviceRequestEdit,
   DonateDeviceRequestList,
 } from "@/resources/donate-device";
-import { RecruiterData, RecruiterShow } from "@/components/react-admin/base/resources/recruiterData/index";
+import {
+  RecruiterData,
+  RecruiterShow,
+} from "@/components/react-admin/base/resources/recruiterData/index";
 import {
   RequestDeviceEdit,
   RequestDeviceList,
@@ -90,10 +93,6 @@ const ResourceConfig = () => {
       },
     ];
   }
-}
-
-
+};
 
 export default ResourceConfig;
-
-

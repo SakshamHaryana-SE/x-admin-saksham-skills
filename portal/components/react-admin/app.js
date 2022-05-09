@@ -10,7 +10,7 @@ import buildHasuraProvider, { buildFields } from "ra-data-hasura";
 import { useEffect, useState } from "react";
 
 import { MuiThemeProvider } from "@material-ui/core";
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme } from "@material-ui/core/styles";
 import customFields from "./customHasura/customFields";
 import customLayout from "./layout/";
 import customTheme from "./theme";

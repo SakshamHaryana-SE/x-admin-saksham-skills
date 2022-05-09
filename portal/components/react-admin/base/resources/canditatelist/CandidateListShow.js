@@ -79,7 +79,7 @@ export const CandidateInterestShow = (props) => {
       console.log({ cv });
       return (
         <div>
-          <a href={record.candidate_profile?.resume_url} rel="noopener" >
+          <a href={record.candidate_profile?.resume_url} rel="noopener">
             CV <PictureAsPdfIcon />
           </a>
         </div>

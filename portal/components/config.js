@@ -6,7 +6,7 @@ const resourceConfig = {
       hi: "अधिकारी",
       credentials: "Shiksha Saathi",
       applicationId: process.env.NEXT_PUBLIC_FUSIONAUTH_STATE_APP_ID,
-      redirectUrl: `admin#/vacancy_details`      
+      redirectUrl: `admin#/vacancy_details`,
     },
   ],
   homepageCards: [
@@ -63,7 +63,7 @@ const resourceConfig = {
   statusChoices: [
     {
       id: "no-action-taken",
-      name: "Donation in Progress",//No Action Taken
+      name: "Donation in Progress", //No Action Taken
       icon: "warning",
       style: "error",
     },
@@ -170,7 +170,7 @@ const resourceConfig = {
   status: [
     {
       id: "Pending",
-      name: "Pending",//No Action Taken
+      name: "Pending", //No Action Taken
       icon: "warning",
       color: "#FEC400",
     },
@@ -180,7 +180,8 @@ const resourceConfig = {
       icon: "pending_actions",
       color: "#F12B2C",
       templateId: "1007409368881000345",
-      template: "Your registration request for e-Samvad has been rejected. Please contact your school head regarding this matter.\n\nSamagra Shiksha, Himachal Pradesh",
+      template:
+        "Your registration request for e-Samvad has been rejected. Please contact your school head regarding this matter.\n\nSamagra Shiksha, Himachal Pradesh",
     },
     {
       id: "Active",
@@ -188,7 +189,8 @@ const resourceConfig = {
       icon: "inventory",
       color: "#29CC97",
       templateId: "1007578130357765332",
-      template: "Your registration on e-Samvad has been approved. You can login to the app to access all the features.\n\nSamagra Shiksha, Himachal Pradesh",
+      template:
+        "Your registration on e-Samvad has been approved. You can login to the app to access all the features.\n\nSamagra Shiksha, Himachal Pradesh",
     },
     {
       id: "Deactivated",

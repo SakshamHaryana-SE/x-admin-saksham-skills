@@ -182,16 +182,55 @@ export const CandidateList = (props) => {
             />
             <FunctionField
               label="Expected Salary"
-              render={(record) => record.expected_salary.salary_range.replaceAll("Rs ", "")}
+              render={(record) =>
+                record.expected_salary.salary_range.replaceAll("Rs ", "")
+              }
             />
-            <FunctionField source="driver_license.driver_license_choice" label="DL" render={(record, source) =>
-              <BooleanField record={{ ...record, "driver_license.driver_license_choice": record.driver_license.driver_license_choice === "Yes" }} source={source} />} />
+            <FunctionField
+              source="driver_license.driver_license_choice"
+              label="DL"
+              render={(record, source) => (
+                <BooleanField
+                  record={{
+                    ...record,
+                    "driver_license.driver_license_choice":
+                      record.driver_license.driver_license_choice === "Yes",
+                  }}
+                  source={source}
+                />
+              )}
+            />
 
-            <FunctionField source="english_knowledge_choice.english_choice" label="English" render={(record, source) =>
-              <BooleanField record={{ ...record, "english_knowledge_choice.english_choice": record.english_knowledge_choice.english_choice === "Yes" }} source={source} />} />
+            <FunctionField
+              source="english_knowledge_choice.english_choice"
+              label="English"
+              render={(record, source) => (
+                <BooleanField
+                  record={{
+                    ...record,
+                    "english_knowledge_choice.english_choice":
+                      record.english_knowledge_choice.english_choice === "Yes",
+                  }}
+                  source={source}
+                />
+              )}
+            />
 
-            <FunctionField source="computer_operator.computer_operator_choice" label="Computer" render={(record, source) =>
-              <BooleanField record={{ ...record, "computer_operator.computer_operator_choice": record.computer_operator.computer_operator_choice === "Yes" }} source={source} />} />
+            <FunctionField
+              source="computer_operator.computer_operator_choice"
+              label="Computer"
+              render={(record, source) => (
+                <BooleanField
+                  record={{
+                    ...record,
+                    "computer_operator.computer_operator_choice":
+                      record.computer_operator.computer_operator_choice ===
+                      "Yes",
+                  }}
+                  source={source}
+                />
+              )}
+            />
 
             <FunctionField
               label="District"
