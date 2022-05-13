@@ -1,9 +1,9 @@
-import Image from "next/image";
 import { useState } from "react";
 import Layout from "../components/layout";
 import Login from "../components/login/login";
 import styles from "../styles/Login.module.css";
 import config from "@/components/config";
+import React from "react";
 
 const LoginWrapper = () => {
   const [selectedPersona, setSelectedPersona] = useState({
