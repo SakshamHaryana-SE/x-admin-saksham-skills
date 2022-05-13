@@ -1,6 +1,4 @@
 import {
-  BooleanField,
-  BooleanInput,
   Datagrid,
   EditButton,
   ExportButton,
@@ -8,31 +6,27 @@ import {
   FunctionField,
   List,
   Pagination,
-  ReferenceField,
   SearchInput,
   TextField,
   TextInput,
   TopToolbar,
   downloadCSV,
   sanitizeListRestProps,
-  useListContext,
-  useMutation,
   useRecordContext,
-  ChipField,
 } from "react-admin";
-import { Route, Switch } from "react-router";
-import { Typography, makeStyles, useMediaQuery, Chip } from "@material-ui/core";
+import { Route } from "react-router";
+import { makeStyles, useMediaQuery, Chip } from "@material-ui/core";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/client";
 import { Drawer } from "@material-ui/core";
 import MoreIcon from "@material-ui/icons/More";
 import React from "react";
-import SwitchButton from "@material-ui/core/Switch";
 import TagEdit from "./TagEdit";
 import ViewIcon from "@material-ui/icons/Visibility";
 import { cloneElement } from "react";
 import jsonExport from "jsonexport/dist";
 import config from "@/components/config";
+import PropTypes from "prop-types";
 
 const SearchFilter = (props) => {
   return (
@@ -139,7 +133,7 @@ const exporter = (records) => {
 
 const ListActions = (props) => {
   const { className, maxResults, filters, ...rest } = props;
-  const { total } = useListContext();
+  // const { total } = useListContext();
 
   return (
     <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
@@ -149,6 +143,11 @@ const ListActions = (props) => {
   );
 };
 
+ListActions.propTypes = {
+  className: PropTypes.object,
+  maxResults: PropTypes.number,
+  filters: PropTypes.element,
+};
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "calc(100% - 0px)",
@@ -189,10 +188,9 @@ export const VacancyData = (props) => {
       setRole(session.role);
     }
   }, []);
-  const [checked, setChecked] = useState(true);
+  const [setChecked] = useState(true);
 
   const ViewInterested = (props) => {
-    const { source, label } = props;
     const record = useRecordContext(props);
     const url =
       `${process.env.NEXT_PUBLIC_URL}/admin#/candidate_vacancy_interest?filter=` +
@@ -320,8 +318,6 @@ export const VacancyData = (props) => {
                     ?.work_experience_choices;
                 }}
               />
-              {/* ​<EditButton />
-              <TextField source="is_live"/> */}
               <ColoredChipField label="Status" source="id" sortable={false} />
               {role === "admin" && <EditButton label="" />}
               <ViewInterested
@@ -360,4 +356,11 @@ export const VacancyData = (props) => {
       </Route>
     </div>
   );
+};
+
+VacancyData.propTypes = {
+  is_live: PropTypes.bool,
+  className: PropTypes.object,
+  maxResults: PropTypes.number,
+  filters: PropTypes.element,
 };

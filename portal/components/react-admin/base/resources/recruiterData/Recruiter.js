@@ -11,13 +11,13 @@ import {
   TopToolbar,
   downloadCSV,
   sanitizeListRestProps,
-  useListContext,
 } from "react-admin";
-import { Typography, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 
 import React from "react";
 import { cloneElement } from "react";
 import jsonExport from "jsonexport/dist";
+import PropTypes from "prop-types";
 
 const SearchFilter = (props) => {
   return (
@@ -52,7 +52,7 @@ const exporter = (records) => {
 
 const ListActions = (props) => {
   const { className, maxResults, filters, ...rest } = props;
-  const { total } = useListContext();
+  // const { total } = useListContext();
 
   return (
     <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
@@ -60,6 +60,13 @@ const ListActions = (props) => {
       <ExportButton exporter={exporter} maxResults={maxResults} />
     </TopToolbar>
   );
+};
+
+ListActions.propTypes = {
+  is_live: PropTypes.bool,
+  className: PropTypes.object,
+  maxResults: PropTypes.number,
+  filters: PropTypes.element,
 };
 
 const useStyles = makeStyles((theme) => ({

@@ -7,10 +7,11 @@ import {
   Tab,
   TabbedShowLayout,
 } from "react-admin";
-import { makeStyles, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 export const CandidateShow = (props) => {
-  const CustomFileField = ({ record, ...props }) => {
+  const CustomFileField = ({ record }) => {
     return (
       <div
         style={{
@@ -28,6 +29,10 @@ export const CandidateShow = (props) => {
         )}
       </div>
     );
+  };
+
+  CustomFileField.propTypes = {
+    record: PropTypes.object,
   };
 
   return (

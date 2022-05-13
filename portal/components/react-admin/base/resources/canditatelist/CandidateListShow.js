@@ -3,34 +3,32 @@ import {
   Show,
   Tab,
   TabbedShowLayout,
-  TextField,
   useRecordContext,
 } from "react-admin";
-import { Typography, makeStyles, useMediaQuery } from "@material-ui/core";
+// import { makeStyles } from "@material-ui/core";
 
 import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf";
 import React from "react";
 import ViewIcon from "@material-ui/icons/Visibility";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "calc(100% - 0px)",
-    height: "86vh",
-    marginTop: theme.spacing(3),
-    overflowX: "auto",
-    overflowY: "scroll",
-    marginLeft: "1rem",
-  },
-  tablecss: {
-    marginRight: "1rem",
-  },
-  headerCell: {
-    color: "black",
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     width: "calc(100% - 0px)",
+//     height: "86vh",
+//     marginTop: theme.spacing(3),
+//     overflowX: "auto",
+//     overflowY: "scroll",
+//     marginLeft: "1rem",
+//   },
+//   tablecss: {
+//     marginRight: "1rem",
+//   },
+//   headerCell: {
+//     color: "black",
+//   },
+// }));
 
 export const CandidateInterestShow = (props) => {
-  const classes = useStyles();
   const ShowCandidate = (props) => {
     const record = useRecordContext(props);
 

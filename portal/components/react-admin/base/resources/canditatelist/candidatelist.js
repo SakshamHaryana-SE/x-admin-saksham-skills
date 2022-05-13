@@ -10,12 +10,10 @@ import {
   TopToolbar,
   downloadCSV,
   sanitizeListRestProps,
-  useListContext,
   useRecordContext,
-  TextField,
   BooleanInput,
 } from "react-admin";
-import { Typography, makeStyles, useMediaQuery } from "@material-ui/core";
+import { makeStyles, useMediaQuery } from "@material-ui/core";
 
 import MoreIcon from "@material-ui/icons/More";
 import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf";
@@ -23,6 +21,7 @@ import React from "react";
 import ViewIcon from "@material-ui/icons/Visibility";
 import { cloneElement } from "react";
 import jsonExport from "jsonexport/dist";
+import PropTypes from "prop-types";
 
 const SearchFilter = (props) => {
   return (
@@ -100,7 +99,6 @@ const exporter = (records) => {
 
 const ListActions = (props) => {
   const { className, maxResults, filters, ...rest } = props;
-  const { total } = useListContext();
 
   return (
     <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
@@ -108,6 +106,12 @@ const ListActions = (props) => {
       <ExportButton exporter={exporter} maxResults={maxResults} />
     </TopToolbar>
   );
+};
+
+ListActions.propTypes = {
+  className: PropTypes.object,
+  maxResults: PropTypes.number,
+  filters: PropTypes.element,
 };
 
 const useStyles = makeStyles((theme) => ({

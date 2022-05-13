@@ -3,7 +3,6 @@ import {
   Edit,
   SaveButton,
   SimpleForm,
-  TextInput,
   Toolbar,
   required,
   translate,
@@ -11,6 +10,7 @@ import {
 
 import Button from "@material-ui/core/Button";
 import React from "react";
+import PropTypes from "prop-types";
 
 const TagEditToolbar = translate(({ onCancel, translate, ...props }) => (
   <Toolbar {...props}>
@@ -28,6 +28,10 @@ const TagEdit = ({ onCancel, ...props }) => {
       </SimpleForm>
     </Edit>
   );
+};
+
+TagEdit.propTypes = {
+  onCancel: PropTypes.func,
 };
 
 export default TagEdit;

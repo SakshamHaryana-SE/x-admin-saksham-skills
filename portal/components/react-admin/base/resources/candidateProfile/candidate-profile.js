@@ -12,9 +12,9 @@ import {
   TopToolbar,
   downloadCSV,
   sanitizeListRestProps,
-  useListContext,
 } from "react-admin";
-import { Input, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 import React from "react";
 import { cloneElement } from "react";
@@ -128,8 +128,6 @@ const exporter = (records) => {
 
 const ListActions = (props) => {
   const { className, maxResults, filters, ...rest } = props;
-  const { total } = useListContext();
-
   return (
     <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
       {cloneElement(filters, { context: "button" })}
@@ -138,7 +136,12 @@ const ListActions = (props) => {
   );
 };
 
-const useStyles = makeStyles((theme) => ({
+ListActions.propTypes = {
+  className: PropTypes.object,
+  maxResults: PropTypes.number,
+  filters: PropTypes.element,
+};
+const useStyles = makeStyles(() => ({
   headerCell: {
     color: "black",
   },

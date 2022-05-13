@@ -6,18 +6,9 @@ import {
   CandidateList,
   CandidateShow,
 } from "@/components/react-admin/base/resources/candidateProfile/index";
-import {
-  DonateDeviceRequestEdit,
-  DonateDeviceRequestList,
-} from "@/resources/donate-device";
-import {
-  RecruiterData,
-  RecruiterShow,
-} from "@/components/react-admin/base/resources/recruiterData/index";
-import {
-  RequestDeviceEdit,
-  RequestDeviceList,
-} from "@/resources/request-device";
+
+import { RecruiterData } from "@/components/react-admin/base/resources/recruiterData/index";
+
 import {
   VacancyData,
   VacancyDataShow,

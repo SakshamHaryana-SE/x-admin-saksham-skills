@@ -12,7 +12,6 @@ import ViewIcon from "@material-ui/icons/Visibility";
 
 export const VacancyDataShow = (props) => {
   const ViewInterested = (props) => {
-    const { source, label } = props;
     const record = useRecordContext(props);
     const url =
       `${process.env.NEXT_PUBLIC_URL}/admin#/candidate_vacancy_interest?filter=` +

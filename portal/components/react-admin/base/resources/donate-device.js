@@ -21,13 +21,14 @@ import {
 } from "react-admin";
 
 import { useSession } from "next-auth/client";
-import { Typography, makeStyles, useMediaQuery } from "@material-ui/core";
+import { makeStyles, useMediaQuery } from "@material-ui/core";
 import EditNoDeleteToolbar from "../components/EditNoDeleteToolbar";
 import BackButton from "../components/BackButton";
 import blueGrey from "@material-ui/core/colors/blueGrey";
 import config from "@/components/config";
 import sendSMS from "@/utils/sendSMS";
 import buildGupshup from "@/utils/buildGupshup";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles((theme) => ({
   searchBar: {
@@ -460,4 +461,11 @@ export const DonateDeviceRequestEdit = (props) => {
       </Edit>
     </div>
   );
+};
+
+DonateDeviceRequestEdit.propTypes = {
+  mutationMode: PropTypes.string,
+  basePath: PropTypes.string,
+  record: PropTypes.object,
+  history: PropTypes.any,
 };
