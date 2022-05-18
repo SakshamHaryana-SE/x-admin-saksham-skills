@@ -1,16 +1,10 @@
-import {
-  AdminContext,
-  AdminUI,
-  Resource,
-  useDataProvider,
-  useRedirect,
-} from "react-admin";
+import { AdminContext, AdminUI, Resource } from "react-admin";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
-import buildHasuraProvider, { buildFields } from "ra-data-hasura";
-import { useEffect, useState } from "react";
+import buildHasuraProvider from "ra-data-hasura";
+import React, { useEffect, useState } from "react";
 
 import { MuiThemeProvider } from "@material-ui/core";
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme } from "@material-ui/core/styles";
 import customFields from "./customHasura/customFields";
 import customLayout from "./layout/";
 import customTheme from "./theme";
@@ -18,6 +12,7 @@ import customVariables from "./customHasura/customVariables";
 import resourceConfig from "./layout/config";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/client";
+import PropTypes from "prop-types";
 
 const App = () => {
   const [dataProvider, setDataProvider] = useState(null);
@@ -36,7 +31,7 @@ const App = () => {
       headers: hasuraHeaders,
     });
 
-    async function buildDataProvider() {
+    const buildDataProvider = async () => {
       try {
         const hasuraProvider = await buildHasuraProvider(
           { client: tempClient },
@@ -54,7 +49,7 @@ const App = () => {
           router.push("/");
         }
       }
-    }
+    };
     buildDataProvider();
   }, [session]);
 
@@ -67,8 +62,8 @@ const App = () => {
     </AdminContext>
   );
 };
-function AsyncResources({ client }) {
-  const [session] = useSession();
+const AsyncResources = ({ client }) => {
+  // const [session] = useSession();
   let introspectionResultObjects =
     client.cache?.data?.data?.ROOT_QUERY?.__schema.types
       ?.filter((obj) => obj.kind === "OBJECT")
@@ -99,6 +94,9 @@ function AsyncResources({ client }) {
       </AdminUI>
     </MuiThemeProvider>
   );
-}
+};
 
+AsyncResources.propTypes = {
+  client: PropTypes.object,
+};
 export default App;

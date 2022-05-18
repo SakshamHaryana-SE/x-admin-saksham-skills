@@ -13,7 +13,6 @@ export const RecruiterShow = (props) => {
       <TabbedShowLayout style={{ marginLeft: "1rem", marginRight: "1rem" }}>
         <Tab label="Vacancy Details">
           <TextField label="Job Role" source="job_role" />
-          ​
           <FunctionField
             label="Sector of job"
             render={(record) => {
@@ -45,7 +44,6 @@ export const RecruiterShow = (props) => {
             label="Number of candidates to recruit"
             source="number_of_candidates_required"
           />
-          ​
           <FunctionField
             label="Are vacancies open for freshers?"
             render={(record) => {
@@ -64,7 +62,6 @@ export const RecruiterShow = (props) => {
               return record?.driver_license?.driver_license_choice;
             }}
           />
-          ​
           <FunctionField
             label="English speaking skills"
             render={(record) => {
@@ -72,7 +69,6 @@ export const RecruiterShow = (props) => {
                 ?.english_speaking_required_choices;
             }}
           />
-          ​
           <FunctionField
             label="Computer operating skills"
             render={(record) => {
@@ -81,14 +77,12 @@ export const RecruiterShow = (props) => {
                 ?.english_speaking_required_choices;
             }}
           />
-          ​
           <FunctionField
             label="Age criteria"
             render={(record) => {
               return record?.age_criteria_choice?.age_range_values;
             }}
           />
-          ​
           <FunctionField
             label="Gender criteria"
             render={(record) => {

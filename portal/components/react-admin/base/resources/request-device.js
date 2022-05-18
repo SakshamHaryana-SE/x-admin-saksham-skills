@@ -4,19 +4,16 @@ import {
   SimpleList,
   Datagrid,
   TextField,
-  BooleanField,
   FunctionField,
   Edit,
   SimpleForm,
-  NullableBooleanInput,
-  Filter,
-  SearchInput,
 } from "react-admin";
 
-import { Typography, makeStyles, useMediaQuery } from "@material-ui/core";
+import { makeStyles, useMediaQuery } from "@material-ui/core";
 import EditNoDeleteToolbar from "../components/EditNoDeleteToolbar";
 import BackButton from "../components/BackButton";
 import blueGrey from "@material-ui/core/colors/blueGrey";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles((theme) => ({
   searchBar: {
@@ -206,4 +203,9 @@ export const RequestDeviceEdit = (props) => {
       </Edit>
     </div>
   );
+};
+
+RequestDeviceEdit.propTypes = {
+  record: PropTypes.object,
+  history: PropTypes.any,
 };

@@ -12,9 +12,9 @@ import {
   TopToolbar,
   downloadCSV,
   sanitizeListRestProps,
-  useListContext,
 } from "react-admin";
-import { Input, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 import React from "react";
 import { cloneElement } from "react";
@@ -128,8 +128,6 @@ const exporter = (records) => {
 
 const ListActions = (props) => {
   const { className, maxResults, filters, ...rest } = props;
-  const { total } = useListContext();
-
   return (
     <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
       {cloneElement(filters, { context: "button" })}
@@ -138,7 +136,12 @@ const ListActions = (props) => {
   );
 };
 
-const useStyles = makeStyles((theme) => ({
+ListActions.propTypes = {
+  className: PropTypes.object,
+  maxResults: PropTypes.number,
+  filters: PropTypes.element,
+};
+const useStyles = makeStyles(() => ({
   headerCell: {
     color: "black",
   },
@@ -182,16 +185,55 @@ export const CandidateList = (props) => {
             />
             <FunctionField
               label="Expected Salary"
-              render={(record) => record.expected_salary.salary_range.replaceAll("Rs ", "")}
+              render={(record) =>
+                record.expected_salary.salary_range.replaceAll("Rs ", "")
+              }
             />
-            <FunctionField source="driver_license.driver_license_choice" label="DL" render={(record, source) =>
-              <BooleanField record={{ ...record, "driver_license.driver_license_choice": record.driver_license.driver_license_choice === "Yes" }} source={source} />} />
+            <FunctionField
+              source="driver_license.driver_license_choice"
+              label="DL"
+              render={(record, source) => (
+                <BooleanField
+                  record={{
+                    ...record,
+                    "driver_license.driver_license_choice":
+                      record.driver_license.driver_license_choice === "Yes",
+                  }}
+                  source={source}
+                />
+              )}
+            />
 
-            <FunctionField source="english_knowledge_choice.english_choice" label="English" render={(record, source) =>
-              <BooleanField record={{ ...record, "english_knowledge_choice.english_choice": record.english_knowledge_choice.english_choice === "Yes" }} source={source} />} />
+            <FunctionField
+              source="english_knowledge_choice.english_choice"
+              label="English"
+              render={(record, source) => (
+                <BooleanField
+                  record={{
+                    ...record,
+                    "english_knowledge_choice.english_choice":
+                      record.english_knowledge_choice.english_choice === "Yes",
+                  }}
+                  source={source}
+                />
+              )}
+            />
 
-            <FunctionField source="computer_operator.computer_operator_choice" label="Computer" render={(record, source) =>
-              <BooleanField record={{ ...record, "computer_operator.computer_operator_choice": record.computer_operator.computer_operator_choice === "Yes" }} source={source} />} />
+            <FunctionField
+              source="computer_operator.computer_operator_choice"
+              label="Computer"
+              render={(record, source) => (
+                <BooleanField
+                  record={{
+                    ...record,
+                    "computer_operator.computer_operator_choice":
+                      record.computer_operator.computer_operator_choice ===
+                      "Yes",
+                  }}
+                  source={source}
+                />
+              )}
+            />
 
             <FunctionField
               label="District"
