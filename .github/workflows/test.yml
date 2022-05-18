@@ -51,8 +51,5 @@ jobs:
     - name: Run eslint test
       run: yarn lint
 
-    - name: Run prettier test
-      run: yarn format:check
-
     - name: Build
       run: yarn build
