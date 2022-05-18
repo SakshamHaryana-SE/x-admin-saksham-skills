@@ -19,7 +19,7 @@
     "graphql-ast-types-browser": "^1.0.2",
     "next": "12",
     "next-auth": "^3.27.0",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.8.1",
     "ra-data-hasura": "^0.1.0",
     "react": "^17.0.2",
     "react-admin": "^3.16.2",

@@ -1,7 +1,7 @@
 import "../styles/globals.css";
+import React from "react";
 import { Provider } from "next-auth/client";
 import { ToastProvider } from "react-toast-notifications";
-import React from "react";
 import PropTypes from "prop-types";
 
 const MyApp = ({ Component, pageProps }) => {
