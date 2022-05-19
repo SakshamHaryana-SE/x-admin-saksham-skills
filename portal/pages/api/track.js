@@ -4,7 +4,7 @@ const handler = async (req, res) => {
   if (req.method === "POST") {
     try {
       const { captcha, captchaToken } = req.body;
-      const responseObjectCaptcha = await captchaVerify(captcha, captchaToken);
+      await captchaVerify(captcha, captchaToken);
       const { id } = req.body;
       const responseObject = await startFetchTrackDevice(id);
       if (responseObject?.errors) {
@@ -61,9 +61,9 @@ async function fetchGraphQL(operationsDoc, operationName, variables) {
   const result = await axios({
     method: "POST",
     headers: {
-      "x-hasura-admin-secret":  process.env.HASURA_ADMIN_SECRET,
+      "x-hasura-admin-secret": process.env.HASURA_ADMIN_SECRET,
     },
-    url:  process.env.HASURA_URL,
+    url: process.env.HASURA_URL,
     data: {
       query: operationsDoc,
       variables: variables,

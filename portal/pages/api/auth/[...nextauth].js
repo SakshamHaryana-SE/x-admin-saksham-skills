@@ -24,7 +24,7 @@ export default NextAuth({
     Providers.Credentials({
       id: "fusionauth",
       name: "FusionAuth Credentials Login",
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         let response = null;
         try {
           response = await fusionAuthLogin(
@@ -44,10 +44,10 @@ export default NextAuth({
     jwt: true,
   },
   callbacks: {
-    redirect(url, baseUrl) {
+    redirect(url) {
       return url;
     },
-    async jwt(token, user, account, profile, isNewUser) {
+    async jwt(token, user, account, profile) {
       // Add access_token to the token right after signin
       if (account) {
         token.username = profile.user?.username;

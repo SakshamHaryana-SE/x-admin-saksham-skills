@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import controls from "./form.config";
 import { signIn } from "next-auth/client";
 import styles from "../../styles/Login.module.css";
 import { useRouter } from "next/router";
 import { useToasts } from "react-toast-notifications";
+import PropTypes from "prop-types";
 
-export default function Login(props) {
+const Login = (props) => {
   const { persona } = props;
   const [input, setInput] = useState({});
   const router = useRouter();
@@ -48,10 +49,11 @@ export default function Login(props) {
       password: input.password,
       applicationId: persona.applicationId,
       redirect: false,
-      callbackUrl: `${persona.redirectUrl.search("http") < 0
-        ? `${process.env.NEXT_PUBLIC_URL}/${persona.redirectUrl}`
-        : persona.redirectUrl
-        }`,
+      callbackUrl: `${
+        persona.redirectUrl.search("http") < 0
+          ? `${process.env.NEXT_PUBLIC_URL}/${persona.redirectUrl}`
+          : persona.redirectUrl
+      }`,
     });
     if (url) {
       router.push(url);
@@ -94,4 +96,17 @@ export default function Login(props) {
       </form>
     </div>
   );
-}
+};
+
+Login.propTypes = {
+  persona: PropTypes.shape({
+    consonant: PropTypes.bool,
+    en: PropTypes.string,
+    hi: PropTypes.string,
+    credentials: PropTypes.string,
+    applicationId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    redirectUrl: PropTypes.string,
+  }).isRequired,
+};
+
+export default Login;
